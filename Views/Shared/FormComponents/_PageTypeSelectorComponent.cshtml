@@ -1,0 +1,15 @@
+﻿@using Kentico.Forms.Web.Mvc
+@using Kentico.Web.Mvc;
+@using Repeater
+@model Repeater.Models.FormComponents.RepeaterPageTypeSelectorComponent
+@{
+    IDictionary<string, object> htmlAttributes = ViewData.Kentico().GetEditorHtmlAttributes();
+}
+@Html.DropDownListFor(x=>x.SelectedValue,Model.GetPageTypes(),"Select PageType",htmlAttributes)
+
+<script>
+    $(function () {
+        $("select[id='kentico-form_PageTypeClassName_SelectedValue'] option:first-child").attr("disabled", "disabled");
+        kentico - form_PageTypeClassName_SelectedValue
+    })
+</script>

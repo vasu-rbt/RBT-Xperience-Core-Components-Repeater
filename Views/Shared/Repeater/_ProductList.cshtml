@@ -1,0 +1,79 @@
+﻿@using CMS.DocumentEngine
+@using Kentico.Content.Web.Mvc;
+@using Kentico.PageBuilder.Web.Mvc
+@using CMS.MacroEngine;
+@using System.Globalization;
+@using CMS.SiteProvider;
+@model Repeater.Components.Widgets.Repeater.RepeaterViewModel
+@inject IPageAttachmentUrlRetriever attachmentUrlRetriever
+@if (Model.PageTypeData != null && Model.Visible == true)
+{
+    @foreach (var Items in Model.PageTypeData)
+    {
+        string Title1= Items.GetStringValue("ProductTitle1", "");
+        string Title2 = Items.GetStringValue("ProductTitle2", "");
+        string SubTitle = Items.GetStringValue("ProductSubTitle", "");
+        string Description = Items.GetStringValue("ProductDescription", "");
+        string ButtonText = Items.GetStringValue("ProductButtonText", "");
+        string ButtonUrl = Items.GetStringValue("ProductButtonUrl", "");
+        string BackGroundImageMedium = Items.GetStringValue("ProductBackGroundImageMedium", "");
+        string BackGroundImageSmall = Items.GetStringValue("ProductBackGroundImageSmall", "");
+        string BackGroundImageLarge = Items.GetStringValue("ProductBackGroundImageLarge", "");
+        string BackGroundImageXLarge = Items.GetStringValue("ProductBackGroundImageXLarge", "");
+        string BackGroundImageClass =  Items.GetStringValue("ProductBackGroundClass", "");
+        string Image =  Items.GetStringValue("ProductImage", "").Replace('~', ' '); ;
+        string ImageAltText = Items.GetStringValue("ProductImageAltText", "");
+        string sitename = SiteContext.CurrentSiteName;
+        <div id="wrapper" class="wrapper">
+      <main id="maincontent">
+        <article class="home-page">
+          <div class="grid-container">
+            <section
+              aria-label="Cheese, butter <br>and beyond."
+              class="home-section mrgTB20 common-content"
+                         data-interchange="[@BackGroundImageLarge, default],[@BackGroundImageSmall, small],[@BackGroundImageMedium, medium],[@BackGroundImageLarge,large], [@BackGroundImageXLarge,xlarge]"
+              data-resize="xe2tt9-interchange"
+              id="xe2tt9-interchange"
+              data-e="itx9ei-e"
+              style="
+                background-image: url('@BackGroundImageMedium');
+              "
+            >
+              <div class="grid-x flex-dir-row-reverse align-middle">
+                <div class="cell small-12 medium-6">
+                                    <div class="homeProduct @Html.Raw(BackGroundImageClass)">
+                    <img
+                      data-interchange="
+		  [ @Image, default],
+		  [ @Image, small],
+		  [ @Image, medium],
+		  [ @Image, large],
+		  [ @Image, xlarge]"
+                      alt="@Html.Raw(ImageAltText)"
+                      data-resize="q9jz3x-interchange"
+                      id="q9jz3x-interchange"
+                                     src="@Image"
+                      data-e="7rdls4-e"
+                    />
+                  </div>
+                </div>
+                <div class="cell small-12 medium-6">
+                                    <h2> @Html.Raw(Title1)<br />@Html.Raw(Title2)</h2>
+                  <div class="section-box green">
+                                        <h4>@Html.Raw(SubTitle)</h4>
+                    <p>
+                     @Html.Raw(Description)
+                    </p>
+                    <a href="@Html.Raw(ButtonUrl)" class="button"
+                      >@Html.Raw(ButtonText)</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </main>
+      </div>
+    }
+}

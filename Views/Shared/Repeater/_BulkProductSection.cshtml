@@ -1,0 +1,49 @@
+﻿@using CMS.DocumentEngine
+@using Kentico.PageBuilder.Web.Mvc
+@using CMS.MacroEngine;
+@using System.Globalization;
+@using CMS.SiteProvider;
+@model Repeater.Components.Widgets.Repeater.RepeaterViewModel
+
+@if (Model.PageTypeData != null && Model.Visible == true)
+{   
+    <div id="wrapper" class="wrapper">
+        <main id="maincontent">
+            <article class="bulk-dairy-product">
+                <div class="grid-container">
+                    <section class="bulk-product-section grid-x grid-margin-x common-content mrgTB20 large-up-4 medium-up-2 small-up-1"
+                         data-equalizer=""
+                         data-equalize-by-row="true"
+                         data-resize="1vqc5n-eq"
+                         data-mutate="qs7j17-eq"
+                         data-e="0dzkl3-e"
+                         data-events="mutate">
+                        @foreach (var Items in Model.PageTypeData)
+                        {
+                            string Image = Items.GetStringValue("ProductImage", "").Replace('~', ' ');
+                            <div class="cell flex-container flex-dir-column text-center @Html.Raw(Items.GetStringValue("ProductBackGroundClass", ""))">
+                                <div class="flex-child-auto">
+                                    <figure data-equalizer-watch="" style="height: 323px">
+                                        <a href="/natural-cheese.html">
+                                            <img src="@Image"
+                                         alt="@Html.Raw(Items.GetStringValue("ProductImageAltText", ""))" />
+                                        </a>
+                                    </figure>
+                                    <h2><a href="/natural-cheese.html">@Html.Raw(Items.GetStringValue("ProductTitle1", ""))</a></h2>
+                                    <p>
+                                        @Html.Raw(Items.GetStringValue("ProductDescription", ""))
+                                    </p>
+                                </div>
+                                <div class="flex-child-shrink">
+                                    <a aria-label="Natural Cheese Explore"
+                               href="@Html.Raw(Items.GetStringValue("ProductButtonUrl", ""))"
+                               class="button">@Html.Raw(Items.GetStringValue("ProductButtonText", ""))</a>
+                                </div>
+                            </div>
+                        }
+                    </section>
+                </div>
+            </article>
+        </main>
+    </div>
+}
