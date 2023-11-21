@@ -35,7 +35,6 @@ namespace Repeater.Models.FormComponents
                 foreach (DataRow row in results.Tables[0].Rows)
                 {
                     // Access data from the row as needed
-                    //string displayName = row["ClassDisplayName"].ToString();
                     selectListItems.Add(new SelectListItem
                     {
                         Value = ValidationHelper.GetString(row["ClassName"],""),
