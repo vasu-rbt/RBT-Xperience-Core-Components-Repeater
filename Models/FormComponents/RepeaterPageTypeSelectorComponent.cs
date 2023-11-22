@@ -2,11 +2,8 @@
 using CMS.Helpers;
 using CMS.SiteProvider;
 using Kentico.Forms.Web.Mvc;
-
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
-
 using Repeater.Models.FormComponents;
 
 [assembly: RegisterFormComponent(RepeaterPageTypeSelectorComponent.IDENTIFIER, typeof(RepeaterPageTypeSelectorComponent), "Drop-down for Page Type Selector ", IconClass = "icon-menu")]

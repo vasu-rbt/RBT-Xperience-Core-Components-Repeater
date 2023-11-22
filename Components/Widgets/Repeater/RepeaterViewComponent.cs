@@ -7,13 +7,14 @@ using Repeater.Components.Widgets.Repeater;
 using Repeater.Models;
 using Repeater.Repositories;
 
-[assembly: RegisterWidget("Repeater.Core.Components.Widgets.Repeater", typeof(RepeaterViewComponent), "Repeater Component", typeof(RepeaterProperties),
+[assembly: RegisterWidget(RepeaterViewComponent.IDENTIFIER, typeof(RepeaterViewComponent), "Repeater Component", typeof(RepeaterProperties),
     Description = "The Repeater Widget is a flexible tool for automatically organizing lots of content as repeated items in accordions or columns and rows.", IconClass = "icon-arrows-crooked")]
 
 namespace Repeater.Components.Widgets.Repeater
 {
     public class RepeaterViewComponent : ViewComponent
     {
+        public const string IDENTIFIER = "DancingGoat.HomePage.Repeater";
         private readonly IRepeaterRepository _repeaterRepository;
         private readonly IEventLogService _eventLogService;
         /// <summary>
