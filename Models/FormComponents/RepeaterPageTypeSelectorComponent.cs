@@ -20,7 +20,7 @@ namespace Repeater.Models.FormComponents
         // Retrieves data to be displayed in the selector
         public List<SelectListItem> GetPageTypes()
         {
-            string sqlQuery = "SELECT * FROM cms_class WHERE ClassDisplayName LIKE '%"+ SiteContext.CurrentSiteName+"%' AND ClassIsDocumentType=1 AND ClassUsesPageBuilder=0";
+            string sqlQuery = "SELECT * FROM cms_class WHERE ClassName LIKE '%" + SiteContext.CurrentSiteName+"%' AND ClassIsDocumentType=1 AND ClassUsesPageBuilder=0";
             List<SelectListItem> selectListItems = new List<SelectListItem>();   
             QueryDataParameters parameters = new QueryDataParameters();
             // Execute the query

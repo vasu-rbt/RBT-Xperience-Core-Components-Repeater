@@ -9,43 +9,21 @@ namespace Repeater.Repositories
     public class RepeaterRepository : IRepeaterRepository
     {
         private readonly IPageRetriever _pageRetriever;
-        private readonly IDocumentTypeHelperRepository _documentTypeHelperRepository;
         private readonly IEventLogService _eventLogService;
         /// <summary>
-        /// Create an Instance for RepeaterRepository
+        /// Create an Instance for RepeaterRepositor
         /// </summary>
         /// <param name="pageRetriever"></param>
         /// <param name="documentTypeHelperRepository"></param>
         /// <param name="eventLogService"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public RepeaterRepository(IPageRetriever pageRetriever, IDocumentTypeHelperRepository documentTypeHelperRepository, IEventLogService eventLogService)
+        public RepeaterRepository(IPageRetriever pageRetriever,IEventLogService eventLogService)
         {
             _pageRetriever = pageRetriever ?? throw new ArgumentNullException(nameof(pageRetriever));
-            _documentTypeHelperRepository = documentTypeHelperRepository ?? throw new ArgumentNullException(nameof(documentTypeHelperRepository));
             _eventLogService = eventLogService ?? throw new ArgumentNullException(nameof(eventLogService));
         }
-        /// <summary>
-        /// Get all page types data
-        /// </summary>
-        /// <param name="selectedPage">Selected page type</param>
-        /// <returns>All page types classes of particular site</returns>
-        public List<SelectListItem> GetTreeData(string? selectedPage)
-        {
-            //Get All page types classes     
-            var types = _documentTypeHelperRepository.GetPageTypeClasses().TypedResult.ToList();
-            var pagetypes = new List<SelectListItem>();
-            foreach (var type in types)
-            {
-                pagetypes.Add(new SelectListItem()
-                {
-                    Text = type.ClassDisplayName,
-                    Value = type.ClassName,
-                    Selected = (type.ClassName == selectedPage)
-                });
-            }
-            return pagetypes;
-        }
-  /// <summary>
+       
+         /// <summary>
         /// Get particular pagetye data based on widget properties
         /// </summary>
         /// <param name="dto"></param>

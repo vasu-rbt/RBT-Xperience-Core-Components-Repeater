@@ -8,7 +8,7 @@
     <Title></Title>
     <PackageId>RBT.Xperience.Core.Components.Repeater</PackageId>
     <Version>1.0.0</Version>
-    <Authors>Niharika</Authors>
+    <Authors>Niharika Vasantham</Authors>
     <Company>Ray Business Technologies</Company>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Description>test</Description>

@@ -1,6 +1,7 @@
 ﻿using CMS.Core;
 using CMS.DocumentEngine;
 using CMS.Helpers;
+using Kentico.Content.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Repeater.Components.Widgets.Repeater;
@@ -14,8 +15,9 @@ namespace Repeater.Components.Widgets.Repeater
 {
     public class RepeaterViewComponent : ViewComponent
     {
-        public const string IDENTIFIER = "DancingGoat.HomePage.Repeater";
+        public const string IDENTIFIER = "Repeater.HomePage.Repeater";
         private readonly IRepeaterRepository _repeaterRepository;
+        private readonly IPageRetriever _pageRetriever;
         private readonly IEventLogService _eventLogService;
         /// <summary>
         /// Create an instance of RepeaterViewComponent
@@ -23,9 +25,10 @@ namespace Repeater.Components.Widgets.Repeater
         /// <param name="repeaterRepository"></param>
         /// <param name="eventLogService"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public RepeaterViewComponent(IRepeaterRepository repeaterRepository, IEventLogService eventLogService)
+        public RepeaterViewComponent(IEventLogService eventLogService,IPageRetriever pageRetriever)
         {
-            _repeaterRepository = repeaterRepository ?? throw new ArgumentNullException(nameof(repeaterRepository));
+            _pageRetriever = pageRetriever ?? throw new ArgumentNullException(nameof(pageRetriever));
+          
             _eventLogService = eventLogService ?? throw new ArgumentNullException(nameof(eventLogService));
         }
         /// <summary>
@@ -38,6 +41,7 @@ namespace Repeater.Components.Widgets.Repeater
         {
             try
             {
+                RepeaterRepository repeaterRepository = new RepeaterRepository(_pageRetriever, _eventLogService);
                 if (properties.PageType != null)
                 {
                     int topN = ValidationHelper.GetInteger(properties?.TopN, 10);
@@ -50,7 +54,7 @@ namespace Repeater.Components.Widgets.Repeater
                         OrderBy = properties?.OrderBy,
                         Where = properties?.Where,
                     };
-                    List<TreeNode> pagetypesData = await Task.Run(() => _repeaterRepository.GetParticularPageTypeData(repeater));
+                    List<TreeNode> pagetypesData = await Task.Run(() => repeaterRepository.GetParticularPageTypeData(repeater));
 
                     if (properties?.TopN > 0)
                     {
@@ -79,5 +83,7 @@ namespace Repeater.Components.Widgets.Repeater
             }
             return await Task.FromResult<IViewComponentResult>(Content(string.Empty));
         }
+
+
     }
 }
