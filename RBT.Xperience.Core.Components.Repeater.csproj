@@ -10,7 +10,7 @@
     <Version>1.0.0</Version>
     <Authors>Niharika Vasantham</Authors>
     <Company>Ray Business Technologies</Company>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>test</Description>
   </PropertyGroup>
 

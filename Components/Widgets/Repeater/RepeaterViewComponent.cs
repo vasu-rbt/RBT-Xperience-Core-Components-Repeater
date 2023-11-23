@@ -15,14 +15,12 @@ namespace Repeater.Components.Widgets.Repeater
 {
     public class RepeaterViewComponent : ViewComponent
     {
-        public const string IDENTIFIER = "Repeater.HomePage.Repeater";
-        private readonly IRepeaterRepository _repeaterRepository;
+        public const string IDENTIFIER = "Repeater.Core.Components.Widgets.Repeater";
         private readonly IPageRetriever _pageRetriever;
         private readonly IEventLogService _eventLogService;
         /// <summary>
         /// Create an instance of RepeaterViewComponent
         /// </summary>
-        /// <param name="repeaterRepository"></param>
         /// <param name="eventLogService"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public RepeaterViewComponent(IEventLogService eventLogService,IPageRetriever pageRetriever)

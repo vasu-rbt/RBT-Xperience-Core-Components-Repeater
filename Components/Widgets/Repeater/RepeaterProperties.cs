@@ -2,7 +2,6 @@
 using Kentico.Forms.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
-
 using Repeater.Models.FormComponents;
 
 namespace Repeater.Components.Widgets.Repeater

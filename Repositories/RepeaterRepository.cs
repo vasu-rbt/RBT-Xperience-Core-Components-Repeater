@@ -1,7 +1,6 @@
 ﻿using CMS.Core;
 using CMS.DocumentEngine;
 using Kentico.Content.Web.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Repeater.Models;
 
 namespace Repeater.Repositories

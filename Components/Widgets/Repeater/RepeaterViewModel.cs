@@ -1,5 +1,4 @@
 ﻿using CMS.DocumentEngine;
-
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Repeater.Components.Widgets.Repeater
