@@ -2,7 +2,7 @@
 The Repeater Widget is a flexible tool for automatically organizing lots of content as repeated items in accordions or columns and rows.
 
 # Installation
-Install the RBT.Xperience.Core.Components.Repeater.1.0.0 NuGet Package to your Kentico Xperience 13 Core MVC Site (>-13.0.64).
+Install the [RBT.Xperience.Core.Components.Repeater.1.0.0](https://www.nuget.org/packages/RBT.Xperience.Core.Components.Repeater/) NuGet Package to your Kentico Xperience 13 Core MVC Site (>-13.0.64).
 
 # How to Use
 - Select where on the page you would like the widget to appear.
