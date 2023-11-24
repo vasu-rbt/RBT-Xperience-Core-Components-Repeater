@@ -28,3 +28,6 @@ Please report any issues seen, in the issue list. We will address at the earlies
 
 Compatibility: This widget has been tested on Kentico Xperience 13 Core version (13.0.64) and can be used on >=13.0.64
 
+# Views Structure
+   Views/Shared/Repeater/ViewName.cshtml
+
